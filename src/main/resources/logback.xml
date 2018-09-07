@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="2 seconds">
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+    <conversionRule conversionWord="traceID" converterClass="kamon.logback.LogbackTraceIDConverter" />
+
+    <root level="${LOGLEVEL_ROOT:-INFO}">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <target>System.out</target>
+            <encoder>
+                <pattern>%d{ISO8601} [%traceID] %-5level [%logger{0}] [%thread] - %msg%n</pattern>
+            </encoder>
+        </appender>
+    </root>
+</configuration>
